@@ -8,7 +8,7 @@ ENV_DIR=${3:-}
 echo "------> Generating .profile.d file to generate google-credentials.json at startup"
 mkdir -p $BUILD_DIR/.profile.d
 CREDENTIALS=$(cat ${ENV_DIR}/GOOGLE_CREDENTIALS)
-APN_KEY=$(cat ${ENV_DIR}/APN_KEY)
+APN_KEY=$(cat ${ENV_DIR}/APNS_P8_KEY_FILE)
 echo "echo ${CREDENTIALS@Q} > /app/google-credentials.json" > $BUILD_DIR/.profile.d/google-credentials.sh
 chmod +x $BUILD_DIR/.profile.d/google-credentials.sh
 echo "echo ${APN_KEY@Q} > /app/apns_p8_key_file.p8" > $BUILD_DIR/.profile.d/apns_p8_key_file.sh
